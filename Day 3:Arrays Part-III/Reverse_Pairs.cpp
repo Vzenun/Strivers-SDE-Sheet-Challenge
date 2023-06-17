@@ -17,29 +17,14 @@ long long join(int i,int m,int j,vector<int> &arr){
     long long answer=0;
     while(i1<n1 && j1<n2){
         if(arr1[i1]<=2*arr2[j1]){
-            arr[k]=arr1[i1];
             i1++;
             k++;
-
         }
         else{
-            arr[k]=2*arr2[j1];
             j1++;
             k++;
-			//if(arr1[i1]>2*arr2[j1-1]){
 			answer+=n1-i1;
-			//}
         }
-    }
-    while(i1<n1){
-        arr[k]=arr1[i1];
-        i1++;
-        k++;
-    }
-    while(j1<n2){
-        arr[k]=arr2[j1];
-        j1++;
-        k++;
     }
 	i1=0;
 	j1=0;
