@@ -27,26 +27,34 @@
 
 *****************************************************************/
 
-bool detectCycle(Node *head)
+Node *firstNode(Node *head)
 {
-	//	Write your code here
-    if(head==nullptr){
-        return false;
+    //    Write your code here.
+    if(head==nullptr || head->next==nullptr || head->next->next==nullptr){
+        return NULL;
     }
-    if(head->next==nullptr){
-        return false;
-    }
-    if(head->next->next==nullptr){
-        return false;
-    }
-    Node * h1=head;
-    Node * h2=head;
-    while(h2->next!=nullptr && h2->next->next!=nullptr){
-        h1=h1->next;
-        h2=h2->next->next;
-        if(h1==h2){
-            return true;
+    else{
+        Node* h1=head;
+        Node* h2=head;
+        bool a=false;
+        while(h2!=nullptr && h2->next!=nullptr){
+            h1=h1->next;
+            h2=h2->next->next;
+            if(h1==h2){
+                a=true;
+                break;
+            }
+        }
+        if(a==false){
+            return NULL;
+        }
+        else{
+            h2=head;
+            while(h1!=h2){
+                h1=h1->next;
+                h2=h2->next;
+            }
+            return h1;
         }
     }
-    return false;
 }
