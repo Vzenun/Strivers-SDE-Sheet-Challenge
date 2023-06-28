@@ -14,28 +14,13 @@ string kthPermutation(int n, int k) {
     fact[n]=fact[n-1]*n;
     string answer;
     int j=n;
-    while(j!=0 && k!=0){
+    k=k-1;
+    while(j!=0){
         int m=k/fact[j-1];
-        int r=k%fact[j-1];
-        if(r!=0){
-            answer.push_back(char('0'+arr[m]));
-            arr.erase(arr.begin()+m);
-            k-=m*fact[j-1];
-            //cout<<k<<endl;
-            j--;
-        }
-        else{
-            answer.push_back(char('0'+arr[m-1]));
-            arr.erase(arr.begin()+m-1);
-            k-=m*fact[j-1];
-            //cout<<k<<endl;
-            j--;
-        }
-    }
-    int i=arr.size()-1;
-    while(i>=0){
-        answer.push_back(char('0'+arr[i]));
-        i--;
+        answer.push_back(char('0'+arr[m]));
+        arr.erase(arr.begin()+m);
+        k-=m*fact[j-1];
+        j--;
     }
     return answer;
 }
