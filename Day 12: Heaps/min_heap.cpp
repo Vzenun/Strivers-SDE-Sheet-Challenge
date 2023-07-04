@@ -27,11 +27,9 @@ int remove_element(){
         int lchild=2*i+1;
         int rchild=2*i+2;
         if(lchild<heap.size() && heap[lchild]<heap[i]){
-            //swap(heap[lchild],heap[i]);
             i=lchild;
         }
         if(rchild<heap.size() && heap[rchild]<heap[i]){
-            //swap(heap[rchild],heap[i]);
             i=rchild;
         }
         if(i!=(rchild-1)/2){
